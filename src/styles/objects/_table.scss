@@ -1,0 +1,66 @@
+/*
+Table
+
+These are styles for a standard table
+
+Markup:
+<table class="o-table">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Username</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+        </tr>
+        <tr>
+            <th scope="row">2</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>@fat</td>
+        </tr>
+        <tr>
+            <th scope="row">3</th>
+            <td>Larry</td>
+            <td>the Bird</td>
+            <td>@twitter</td>
+        </tr>
+    </tbody>
+</table>
+
+Styleguide 9.0
+*/
+.o-table {
+    width: 100%;
+}
+
+.o-table > thead > tr > th {
+    border-bottom: 2px solid $COLOR_LT_GREY;
+    font-weight: bold;
+}
+
+.o-table th,
+.o-table td {
+    padding: 5px;
+    text-align: left;
+}
+
+.o-table > tbody > tr > th,
+.o-table > tbody > tr > td {
+    border-top: 1px solid $COLOR_LT_GREY;
+}
+
+.o-table > tbody > tr {
+    @include transition(background-color .25s ease-in-out);
+}
+
+.o-table > tbody > tr:hover {
+    background-color: $COLOR_XLLT_GREY;
+}

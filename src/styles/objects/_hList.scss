@@ -1,0 +1,57 @@
+/*
+Horizontal Lists
+
+These are styles for laying out small lists of items
+
+Markup:
+<ul class="o-hList">
+    <li>item</li>
+    <li>item</li>
+    <li>item</li>
+</ul>
+
+Styleguide 7.0
+*/
+
+/*
+.o-hList--joined - Joined together
+
+Markup:
+<ul class="o-hList o-hList--joined">
+    <li>item</li>
+    <li>item</li>
+    <li>item</li>
+</ul>
+
+Styleguide 7.1
+ */
+
+/*
+.o-hList--piped - with pipe divider
+
+Markup:
+<ul class="o-hList o-hList--piped">
+    <li>item</li>
+    <li>item</li>
+    <li>item</li>
+</ul>
+
+Styleguide 7.2
+ */
+.o-hList > * {
+    display: inline-block;
+}
+
+.o-hList--joined {
+    font-size: 0; /* removes any white-space */
+}
+
+.o-hList--joined > * {
+    font-size: $BASE_FONT_SIZE;
+}
+
+.o-hList--piped > * + * {
+    border-left: 1px solid;
+    margin-left: .25em;
+    padding-left: .47em;
+}

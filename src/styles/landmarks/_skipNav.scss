@@ -1,0 +1,23 @@
+.skipNav {
+    position: absolute;
+    top: -1000px;
+    left: -1000px;
+    height: 1px;
+    width: 1px;
+    text-align: left;
+    overflow: hidden;
+    color: #ffffff;
+    padding: 5px;
+    background-color: $COLOR_ACCENT;
+    z-index: map-get($LAYER_MAP, SKIP_NAV);
+}
+
+a.skipNav:active,
+a.skipNav:focus,
+a.skipNav:hover {
+    left: 0;
+    top: 0;
+    width: auto;
+    height: auto;
+    overflow: visible;
+}

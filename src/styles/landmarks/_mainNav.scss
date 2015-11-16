@@ -1,0 +1,141 @@
+$mainNav_HAMBURGER_WIDTH: 36px;
+$mainNav_HAMBURGER_PADDING: 10px;
+$mainNav_HAMBURGER_BAR_HEIGHT: 4px;
+$mainNav_HAMBURGER_BAR_SPACING: 7px;
+$mainNav_HAMBURGER_HEIGHT: ($mainNav_HAMBURGER_BAR_HEIGHT*3) + ($mainNav_HAMBURGER_BAR_SPACING*2);
+$mainNav_HAMBURGER_BAR_ROTATION: 40deg;
+
+.mainNav__nav__item,
+.mainNav__nav__item__anchor, {
+    color: $COLOR_LT_GREY;
+}
+
+.mainNav__nav__item__anchor {
+    font-size: 16px; /* need this specificed since font-size is zeroed on parent in medium */
+    font-weight: bold;
+    @include transition(all .25s ease-in-out);
+    background-color: transparent;
+}
+
+.mainNav__nav__item__anchor:hover,
+.mainNav__nav__item__anchor:focus {
+    color: $COLOR_WHITE;
+    background-color: lighten($COLOR_DARK, 10%);
+}
+
+@include bpmax(($SCREEN_MED)-1px) {
+    .mainNav {
+        position: relative;
+        z-index: map-get($LAYER_MAP, MAIN_NAV);
+    }
+
+    .mainNav__nav {
+        background-color: $COLOR_DARK;
+        position: absolute;
+        right: 0;
+        left: 0;
+    }
+
+    .mainNav__nav__item__anchor {
+        display: block;
+        padding: 5px $CONTENT_PADDING;
+        border-top: 1px solid lighten($COLOR_DARK, 10%);
+    }
+
+    .mainNav__nav__hamburger {
+        width: $mainNav_HAMBURGER_WIDTH;
+        height: $mainNav_HAMBURGER_HEIGHT;
+        position: absolute;
+        top: -($mainNav_HAMBURGER_HEIGHT + $CONTENT_PADDING + 5px);
+        right: $CONTENT_PADDING;
+        background-color: transparent;
+        border: none;
+        margin: 0;
+        padding: $mainNav_HAMBURGER_PADDING;
+        text-align: left;
+        cursor: pointer;
+        outline: 0;
+        background-color: transparent;
+        box-sizing: content-box;
+        border-radius: 3px;
+        @include transition(all .25s ease-in-out);
+    }
+
+    .mainNav__nav__hamburger:hover,
+    .mainNav__nav__hamburger:focus {
+        background-color: lighten($COLOR_DARK, 10%);
+    }
+
+    .mainNav__nav__hamburger__text {
+        @include visuallyHidden();
+    }
+
+    .mainNav__nav__hamburger__bar {
+        position: absolute;
+        left: $mainNav_HAMBURGER_PADDING;
+        right: $mainNav_HAMBURGER_PADDING;
+        height: $mainNav_HAMBURGER_BAR_HEIGHT;
+        background-color: $COLOR_WHITE;
+        border-radius: 3px;
+        @include transition(all .25s ease-in-out);
+        opacity: 1;
+    }
+
+    .mainNav__nav__hamburger__bar--top {
+        top: $mainNav_HAMBURGER_PADDING;
+    }
+
+    .mainNav__nav__hamburger.is-open .mainNav__nav__hamburger__bar--top {
+        top: 50%;
+        opacity: 0;
+    }
+
+    .mainNav__nav__hamburger__bar--bottom {
+        bottom: $mainNav_HAMBURGER_PADDING;
+    }
+
+    .mainNav__nav__hamburger.is-open .mainNav__nav__hamburger__bar--bottom {
+        bottom: 50%;
+        opacity: 0;
+    }
+
+    .mainNav__nav__hamburger__bar--middle {
+        margin-top: -($mainNav_HAMBURGER_BAR_HEIGHT/2);
+        top: 50%;
+    }
+
+    .mainNav__nav__hamburger.is-open .mainNav__nav__hamburger__bar--middle--one {
+        @include transform(rotate($mainNav_HAMBURGER_BAR_ROTATION));
+    }
+
+    .mainNav__nav__hamburger.is-open .mainNav__nav__hamburger__bar--middle--two {
+        @include transform(rotate(-$mainNav_HAMBURGER_BAR_ROTATION));
+    }
+}
+
+@include bpmin($SCREEN_MED) {
+    .mainNav {
+        text-align: center;
+    }
+
+    .mainNav__nav,
+    .mainNav__nav__item {
+        display: inline-block;
+    }
+
+    .mainNav__nav {
+        font-size: 0; /* removes white-space */
+    }
+
+    .mainNav__nav__item + .mainNav__nav__item {
+        border-left: 1px solid;
+    }
+
+    .mainNav__nav__item__anchor {
+        padding: 5px 10px;
+    }
+
+    .mainNav__nav__hamburger {
+        display: none;
+    }
+}

@@ -1,0 +1,18 @@
+.page,
+.page__bd {
+    height: 100%;
+}
+
+.page__bd {
+  display: table;
+  width: 100%;
+}
+
+.page__bd__row {
+  display: table-row;
+  height: 1px;
+}
+
+.page__bd__row--expanded {
+    height: 100%;
+}

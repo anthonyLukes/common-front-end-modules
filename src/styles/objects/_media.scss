@@ -1,0 +1,34 @@
+/*
+Media
+
+This is a typical media module implementation.
+
+Markup:
+<div class="o-media">
+    <div class="o-media__el"><img src="//www.fillmurray.com/100/150" alt=""></div>
+    <div class="o-media__bd">
+        Post-ironic cred photo booth, squid plaid asymmetrical tilde Williamsburg dreamcatcher
+        DIY letterpress PBR direct trade literally typewriter. Bitters chambray sriracha Vice,
+        farm-to-table Shoreditch gentrify keffiyeh pop-up squid taxidermy. Crucifix bicycle
+        rights street art YOLO. Keffiyeh listicle Intelligentsia normcore gastropub. Whatever
+        polaroid sriracha, four loko 90's High Life semiotics occupy plaid gastropub kale
+        chips. Squid locavore cliche chillwave put a bird on it, umami crucifix aesthetic
+        hella tilde. Raw denim synth dreamcatcher, locavore Kickstarter Bushwick blog
+        flexitarian cold-pressed four loko swag try-hard.
+    </div>
+</div>
+
+Styleguide 8.0
+*/
+.o-media {
+    @include clearfix();
+}
+
+.o-media__el {
+    float: left;
+    margin-right: 15px;
+}
+
+.o-media__bd {
+    overflow: hidden;
+}

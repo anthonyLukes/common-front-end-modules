@@ -1,0 +1,55 @@
+// ---------------------------------------------------------------------
+// Clearfix
+//----------------------------------------------------------------------
+@mixin clearfix() {
+    & {
+        *zoom: 1;
+    }
+    &:before,
+    &:after {
+        content: "";
+        display: table;
+    }
+    &:after {
+        clear: both;
+    }
+}
+
+// ---------------------------------------------------------------------
+// Visually Hidden
+//----------------------------------------------------------------------
+@mixin visuallyHidden() {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+// ---------------------------------------------------------------------
+// Min-width media query
+//----------------------------------------------------------------------
+@mixin bpmin($point) {
+    @if ($IS_MODERN) {
+        @media (min-width: $point) {
+            @content;
+        }
+    } @else {
+        @content;
+    }
+
+}
+
+// ---------------------------------------------------------------------
+// Max-width media query (Non-modern doesn't get any styles)
+//----------------------------------------------------------------------
+@mixin bpmax($point) {
+    @if ($IS_MODERN) {
+        @media (max-width: $point) {
+            @content;
+        }
+    }
+}

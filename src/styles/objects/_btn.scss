@@ -1,0 +1,35 @@
+/*
+Button
+
+These are standard button styles to be used for `<button>`, `<input>`, `<span>`, or `<a>` tags.
+
+Markup:
+<button class="o-btn">Go</button>
+
+Styleguide 2.0
+*/
+$o-btn_BG_COLOR: #3e779d;
+$o-btn_TXT_COLOR: #ffffff;
+
+.o-btn {
+    display: inline-block;
+    padding: 10px;
+    border-radius: 3px;
+    border: none;
+    background-color: $o-btn_BG_COLOR;
+    color: $o-btn_TXT_COLOR;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 15px;
+    font-family: inherit;
+    font-weight: bold;
+    line-height: 1;
+    @include transition(all .25s ease-in-out);
+    @include box-shadow(0px 0px 5px 0px rgba(0,0,0,0.25));
+}
+
+.o-btn:hover,
+.o-btn:focus {
+    background-color: $o-btn_TXT_COLOR;
+    color: $o-btn_BG_COLOR;
+}

@@ -1,0 +1,89 @@
+/*
+Vertical Lists
+
+These are styles for styling vertical lists of items
+
+Markup:
+<ul class="o-vList">
+    <li>Vertical List item (default - same as o-vList--1x)</li>
+    <li>Vertical List item (default - same as o-vList--1x)</li>
+    <li>Vertical List item (default - same as o-vList--1x)</li>
+    <li>Vertical List item (default - same as o-vList--1x)</li>
+</ul>
+
+Styleguide 10.0
+*/
+
+/*
+.o-vList--2x - Two units of spacing between items
+
+Markup:
+<ul class="o-vList o-vList--2x">
+    <li>Vertical List item (o-vList--2x)</li>
+    <li>Vertical List item (o-vList--2x)</li>
+    <li>Vertical List item (o-vList--2x)</li>
+    <li>Vertical List item (o-vList--2x)</li>
+</ul>
+
+Styleguide 10.1.0
+*/
+
+/*
+.o-vList--divided - Line divider between each item (spacing still the same)
+
+Markup:
+<ul class="o-vList o-vList--2x o-vList--divided">
+    <li>Vertical List item (o-vList--2x with divider)</li>
+    <li>Vertical List item (o-vList--2x with divider)</li>
+    <li>Vertical List item (o-vList--2x with divider)</li>
+    <li>Vertical List item (o-vList--2x with divider)</li>
+</ul>
+
+Styleguide 10.1.1
+*/
+
+/*
+Other Variations:
+
+Sizes variations range from 1x to 5x and are available with the `.o-vList--divided` optional class.
+
+* `o-vList--1x`
+* `o-vList--2x`
+* `o-vList--3x`
+* `o-vList--4x`
+* `o-vList--5x`
+* `o-vList--divided`
+
+Styleguide 10.2
+*/
+$o-vList_UNIT: 10px;
+$o-vList_UNITS: 5;
+
+.o-vList > * + * {
+    margin-top: $o-vList_UNIT;
+}
+
+@for $i from 1 through $o-vList_UNITS {
+    .o-vList--#{$i}x > * + * {
+        margin-top: $o-vList_UNIT*$i;
+    }
+}
+
+.o-vList--divided > * + * {
+    position: relative;
+}
+
+.o-vList--divided > * + *:before {
+    content: ' ';
+    width: 100%;
+    height: 0;
+    border-top: 1px solid;
+    position: absolute;
+    top: -($o-vList_UNIT/2);
+}
+
+@for $i from 1 through $o-vList_UNITS {
+    .o-vList--#{$i}x.o-vList--divided > * + *:before {
+        top: -(($o-vList_UNIT*$i)/2);
+    }
+}

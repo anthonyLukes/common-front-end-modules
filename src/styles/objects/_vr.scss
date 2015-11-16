@@ -1,0 +1,25 @@
+/*
+Vertical Rhythm
+
+This a generic system for spacing out chunks of content or modules. This is not intended to be used as a utility inside of modules. Intra-module styles should be handled from inside the module and its namespace.
+
+Markup:
+<div class="o-vr">Vertical rhythm (default - .o-vr)</div>
+<div class="o-vr o-vr--2x">Vertical rhythm (2x)</div>
+<div class="o-vr o-vr--3x">Vertical rhythm (3x)</div>
+<div class="o-vr o-vr--4x">Vertical rhythm (4x)</div>
+<div class="o-vr o-vr--5x">Vertical rhythm (5x)</div>
+<hr>
+
+Styleguide 11.0
+*/
+$o-vr_UNIT: 5px;
+
+.o-vr {
+    margin-bottom: $o-vr_UNIT;
+}
+@for $i from 2 through 5 {
+    .o-vr--#{$i}x {
+        margin-bottom: $o-vr_UNIT*$i;
+    }
+}

@@ -1,0 +1,108 @@
+/*
+Blocks
+
+Blocks are a way of laying out one or more rows of content that are all the same
+width, but may vary in height. By default, each block item is 100% wide unless there's
+a size modifier applied. Block styles are tag agnostic and can be applied to ordered or unordered lists.
+
+Styleguide 1.0
+*/
+
+/*
+.o-blocks--2up       - Two columns for all sizes.
+
+Markup:
+<div class="o-blocks o-blocks--2up">
+    <div>item 1</div>
+    <div>item 2</div>
+    <div>item 3</div>
+    <div>item 4</div>
+</div>
+
+Styleguide 1.1.0
+*/
+
+/*
+.o-blocks--2upAtMd       - Two columns starting at Medium size.
+
+Markup:
+<div class="o-blocks o-blocks--2upAtMd">
+    <div>item 1</div>
+    <div>item 2</div>
+    <div>item 3</div>
+    <div>item 4</div>
+</div>
+
+Styleguide 1.1.1
+*/
+
+/*
+.o-blocks--2upAtLg       - Two columns starting at Large size.
+
+Markup:
+<div class="o-blocks o-blocks--2upAtLg">
+    <div>item 1</div>
+    <div>item 2</div>
+    <div>item 3</div>
+    <div>item 4</div>
+</div>
+
+Styleguide 1.1.2
+*/
+
+/*
+Other Variations:
+
+All variations (default, atMd & atLg variations) are also available for 3up, 4up, and 5up.
+
+* `o-blocks--2up`
+* `o-blocks--2upAtMd`
+* `o-blocks--2upAtLg`
+* `o-blocks--3up`
+* `o-blocks--3upAtMd`
+* `o-blocks--3upAtLg`
+* `o-blocks--4up`
+* `o-blocks--4upAtMd`
+* `o-blocks--4upAtLg`
+* `o-blocks--5up`
+* `o-blocks--5upAtMd`
+* `o-blocks--5upAtLg`
+
+Styleguide 1.2
+*/
+$o-blocks_MARGIN: 2%;
+$o-blocks_TRUE_WIDTH: get-true-width($o-blocks_MARGIN);
+
+.o-blocks {
+    font-size: 0;
+    margin-left: -$o-blocks_MARGIN;
+}
+
+.o-blocks > * {
+    display: inline-block;
+    font-size: $BASE_FONT_SIZE;
+    margin-left: percentage(1 - $o-blocks_TRUE_WIDTH);
+    width: get-column-width(1, $o-blocks_MARGIN); // initially set to 100% width by default
+}
+
+@for $i from 2 through 5 {
+    .o-blocks--#{$i}up > * {
+        width: get-column-width(1/$i, $o-blocks_MARGIN);
+    }
+}
+
+@include bpmin($SCREEN_MED) {
+    @for $i from 2 through 5 {
+        .o-blocks--#{$i}upAtMd > * {
+            width: get-column-width(1/$i, $o-blocks_MARGIN);
+        }
+    }
+}
+
+@include bpmin($SCREEN_LARGE) {
+    @for $i from 2 through 5 {
+        .o-blocks--#{$i}upAtLg > * {
+            width: get-column-width(1/$i, $o-blocks_MARGIN);
+        }
+    }
+}

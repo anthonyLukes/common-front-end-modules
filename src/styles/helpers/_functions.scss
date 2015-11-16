@@ -1,0 +1,23 @@
+// ---------------------------------------------------------------------
+// Deep Get
+//----------------------------------------------------------------------
+@function map-deep-get($map, $keys...) {
+    @each $key in $keys {
+        $map: map-get($map, $key);
+    }
+    @return $map;
+}
+
+// ---------------------------------------------------------------------
+// Get True Width (for Grids and Blocks)
+//----------------------------------------------------------------------
+@function get-true-width($margin) {
+    @return 100% / (100% + $margin);
+}
+
+// ---------------------------------------------------------------------
+// Get Column Width (for Grids and Blocks)
+//----------------------------------------------------------------------
+@function get-column-width($fraction, $margin) {
+    @return ($fraction * 100%) - ($margin * get-true-width($margin));
+}

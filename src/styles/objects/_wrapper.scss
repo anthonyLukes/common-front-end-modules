@@ -1,0 +1,6 @@
+@include bpmin($SCREEN_LARGE) {
+    .o-wrapper {
+        width: $SCREEN_LARGE;
+        margin: auto;
+    }
+}

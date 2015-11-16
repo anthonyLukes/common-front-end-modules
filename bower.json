@@ -1,0 +1,19 @@
+{
+  "name": "gulp-boilerplate",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "anthonyLukes <anthony.lukes@gmail.com>"
+  ],
+  "license": "MIT",
+  "moduleType": [
+    "amd",
+    "globals",
+    "node"
+  ],
+  "homepage": "",
+  "private": true,
+  "dependencies": {
+    "jquery": "jquery#^1"
+  }
+}

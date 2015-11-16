@@ -1,0 +1,22 @@
+.header {
+    background-color: $COLOR_DARK;
+    padding: $CONTENT_PADDING;
+    color: $COLOR_WHITE;
+    @include clearfix();
+    position: relative;
+}
+
+@include bpmax(($SCREEN_MED)-1px) {
+    .header__nav {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        left: 0;
+    }
+}
+
+@include bpmin($SCREEN_MED) {
+    .header__nav {
+        margin-top: 10px;
+    }
+}

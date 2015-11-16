@@ -1,0 +1,22 @@
+{
+  "imageSets": {
+    "set1": {
+      "images": [{
+        "src": "//fillmurray.com/200/300",
+        "alt": "Image one alt text"
+      }, {
+        "src": "//fillmurray.com/g/200/300",
+        "alt": "Image two alt text"
+      }]
+    },
+    "set2": {
+      "images": [{
+        "src": "//fillmurray.com/200/200",
+        "alt": "Image one alt text"
+      }, {
+        "src": "//fillmurray.com/g/200/200",
+        "alt": "Image two alt text"
+      }]
+    }
+  }
+}

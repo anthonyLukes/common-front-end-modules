@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="eng" class="page">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!--[if ! lte IE 8]>-->
+            <link rel="stylesheet" href="{{CSS_BUNDLE_MODERN}}">
+        <!--<![endif]-->
+        <!--[if (gte IE 6)&(lte IE 8)]>
+            <link rel="stylesheet" href="{{CSS_BUNDLE_LEGACY}}">
+        <![endif]-->
+    </head>
+    <body class="page__bd">
+        <div class="page__bd__row">
+            <a href="#content" class="skipNav" data-ui-component="SkipNav">Skip to content</a>
+            <div class="header" role="banner">
+                <div class="o-wrapper">
+                    <div class="header__hdr">
+                        <h1 class="hdg hdg_1 hdg_lh1">RxSentry</h1>
+                    </div>
+                    <div class="header__nav">
+                        <div class="mainNav" data-ui-component="MainNav">
+                            <button class="mainNav__nav__hamburger" data-ui="trigger">
+                                <span class="mainNav__nav__hamburger__text">toggle nav</span>
+                                <span class="mainNav__nav__hamburger__bar mainNav__nav__hamburger__bar--top"></span>
+                                <span class="mainNav__nav__hamburger__bar mainNav__nav__hamburger__bar--middle mainNav__nav__hamburger__bar--middle--one"></span>
+                                <span class="mainNav__nav__hamburger__bar mainNav__nav__hamburger__bar--middle mainNav__nav__hamburger__bar--middle--two"></span>
+                                <span class="mainNav__nav__hamburger__bar mainNav__nav__hamburger__bar--bottom"></span>
+                            </button>
+                            <ul class="mainNav__nav" data-ui="target" role="navigation">
+                                <li class="mainNav__nav__item">
+                                    <a href="#" class="mainNav__nav__item__anchor">item 1</a>
+                                </li>
+                                <li class="mainNav__nav__item">
+                                    <a href="#" class="mainNav__nav__item__anchor">item 1</a>
+                                </li>
+                                <li class="mainNav__nav__item">
+                                    <a href="#" class="mainNav__nav__item__anchor">item 1</a>
+                                </li>
+                                <li class="mainNav__nav__item">
+                                    <a href="#" class="mainNav__nav__item__anchor">item 1</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="page__bd__row page__bd__row--expanded">
+            <div id="content" class="content" role="main">
+                <div class="o-wrapper">
+                    {% block content %} {% endblock %}
+                </div>
+            </div>
+        </div>
+        <div class="page__bd__row">
+            <div class="footer" role="contentinfo">
+                <div class="o-wrapper">footer</div>
+            </div>
+        </div>
+        <script src="{{JS_BUNDLE}}"></script>
+    </body>
+</html>
+

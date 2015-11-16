@@ -1,0 +1,20 @@
+$COLOR_DARK: #333333;
+$COLOR_LT_GREY: #dcdcdc;
+$COLOR_XLLT_GREY: #f0f0f0;
+$COLOR_WHITE: #ffffff;
+$COLOR_ACCENT: #ff0000;
+
+$BASE_FONT_SIZE: 14px;
+$CONTENT_PADDING: 20px;
+
+// FONTS
+$FONT_DEFAULT: Arial, 'Helvetica Neue', Helvetica, sans-serif;
+
+// SCREEN SIZES
+$SCREEN_MED: map-deep-get($SHARED_CONFIG, "screenSizes", "medium");
+$SCREEN_LARGE: map-deep-get($SHARED_CONFIG, "screenSizes", "large");
+
+$LAYER_MAP: (
+    SKIP_NAV: 5,
+    MAIN_NAV: 5
+);

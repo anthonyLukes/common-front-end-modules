@@ -1,0 +1,32 @@
+/*
+Heading
+
+These are general heading styles for text headings
+
+Markup:
+<h1 class="o-hdg o-hdg_1">Heading 1</h1>
+<h2 class="o-hdg  o-hdg_1">Heading 1</h2>
+<h3 class="o-hdg o-hdg_1">Heading 1</h3>
+<h4 class="o-hdg  o-hdg_1">Heading 1</h4>
+<h5 class="o-hdg o-hdg_1">Heading 1</h5>
+<h6 class="o-hdg  o-hdg_1">Heading 1</h6>
+<h1 class="o-hdg o-hdg_1 o-hdg_lh1">Heading 1</h1>
+<h2 class="o-hdg  o-hdg_1 o-hdg_lh1">Heading 1</h2>
+<h3 class="o-hdg o-hdg_1 o-hdg_lh1">Heading 1</h3>
+<h4 class="o-hdg  o-hdg_1 o-hdg_lh1">Heading 1</h4>
+<h5 class="o-hdg o-hdg_1 o-hdg_lh1">Heading 1</h5>
+<h6 class="o-hdg  o-hdg_1 o-hdg_lh1">Heading 1</h6>
+
+Styleguide 6.0
+*/
+.o-hdg {
+    font-weight: bold;
+}
+
+.o-hdg_1 {
+    font-size: 36px;
+}
+
+.o-hdg_lh1 {
+    line-height: 1;
+}

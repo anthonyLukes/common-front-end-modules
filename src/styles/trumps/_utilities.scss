@@ -1,0 +1,22 @@
+/*
+Utility Classes
+
+These are generic utilitarian classes that should be used sparingly. Utilitarian classes composed together often enough is a sign that a new module needs to be created.
+
+Styleguide 12.0
+*/
+
+/*
+Visually Hidden
+
+This utility will hide content in the browser, but will allow assisted devices (screen readers) to see the content.
+
+Markup:
+<div class="u-visuallyHidden">I'm visually hidden content</div>
+<div>I'm not hidden content</div>
+
+Styleguide 12.1
+*/
+.u-visuallyHidden {
+    @include visuallyHidden();
+}

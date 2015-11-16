@@ -1,0 +1,28 @@
+/*
+Field input
+
+These are standard input styles to be used for `<input type="text">` form fields. By default these will grow to fill their parent container.
+
+Markup:
+<input class="o-field" type="text" />
+
+Styleguide 3.0
+*/
+$o-field_PADDING: 8px;
+.o-field {
+    width: 100%;
+    background-color: $COLOR_XLLT_GREY;
+    border: 0;
+    @if ($IS_MODERN) {
+        padding: $o-field_PADDING;
+        box-sizing: border-box;
+    } else {
+        padding: $o-field_PADDING 0;
+    }
+    @include transition(all .25s ease-in-out);
+}
+
+.o-field:focus {
+    background-color: lighten($COLOR_XLLT_GREY, 2%);
+    @include box-shadow(0px 0px 8px 0px rgba(0,0,0,0.5));
+}

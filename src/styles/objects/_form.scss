@@ -1,0 +1,76 @@
+/*
+Form (layout)
+
+This is the layout system for laying out form elements into columns and for displaying label text for each form field.
+
+####Classes for elements within the module:
+
+* `.o-form` is the base class for the root of the form container.
+* `.o-form__group` is the class for the form columns
+* `.o-form__group__label` is the class for each form field's `<label>` text
+* `.o-form__group_field` is the class for the form fields
+
+####Modifier Classes within the module:
+
+* `.o-form__group--1of12` through `.o-form__group--12of12`
+* There are `.o-form__group--[n]of12AtMd` and `.o-form__group--[n]of12AtLg` modifiers for screen size specific column widths.
+
+Markup:
+<form action="" class="o-form">
+    <div class="o-form__group o-form__group--12of12 o-form__group--4of12AtLg">
+        <label for="input1" class="o-form__group__label">Form Input 1</label>
+        <div class="o-form__group__field"><input type="text" id="input1" class="o-field" /></div>
+    </div>
+    <div class="o-form__group o-form__group--12of12 o-form__group--6of12AtMd o-form__group--4of12AtLg">
+        <label for="input2" class="o-form__group__label">Form Input 1</label>
+        <div class="o-form__group__field"><input type="text" id="input2" class="o-field" /></div>
+    </div>
+    <div class="o-form__group o-form__group--12of12 o-form__group--6of12AtMd o-form__group--4of12AtLg">
+        <label for="input3" class="o-form__group__label">Form Input 1</label>
+        <div class="o-form__group__field"><input type="text" id="input3" class="o-field" /></div>
+    </div>
+</form>
+
+Styleguide 4.0
+*/
+$o-form_MARGIN: 3%;
+$o-form_TRUE_WIDTH: get-true-width($o-form_MARGIN);
+
+.o-form {
+    margin-left: -$o-form_MARGIN;
+    font-size: 0;
+}
+
+.o-form__group {
+    display: inline-block;
+    margin-left: percentage(1 - $o-form_TRUE_WIDTH);
+    font-size: $BASE_FONT_SIZE;
+    margin-bottom: 10px;
+}
+
+@for $i from 1 through 12 {
+    .o-form__group--#{$i}of12 {
+        width: get-column-width($i/12, $o-form_MARGIN);
+    }
+}
+
+@include bpmin($SCREEN_MED) {
+    @for $i from 1 through 12 {
+        .o-form__group--#{$i}of12AtMd {
+            width: get-column-width($i/12, $o-form_MARGIN);
+        }
+    }
+}
+
+@include bpmin($SCREEN_LARGE) {
+    @for $i from 1 through 12 {
+        .o-form__group--#{$i}of12AtLg {
+            width: get-column-width($i/12, $o-form_MARGIN);
+        }
+    }
+}
+
+.o-form__group__label {
+    display: block;
+    font-weight: bold;
+}
