@@ -1,6 +1,6 @@
 # Common Front-end Modules
 
-This is a repo of common Sass and JavaScript modules that would likely be used on any front-end project.
+This is a repo of common Sass and JavaScript modules that would serve as a base for any front-end project.
 
 ## Sass Modules ##
 The sass source code lives in /src/styles and follows mostly standard [BEM naming](https://css-tricks.com/bem-101/). In addition some naming conventions have been pulled from the CSS Wizardry article, [More Transparent UI Code with Namespaces](http://csswizardry.com/2015/03/more-transparent-ui-code-with-namespaces/). The following rules are what have been implemented specifically.
@@ -67,4 +67,4 @@ In order to support legacy browsers that do not support media queries we have to
 <![endif]-->
 ````
 
-Now legacy browsers will get desktop styles without needing a polyfill for media queries. 
+Now legacy browsers will get desktop styles without needing a polyfill for media queries.
