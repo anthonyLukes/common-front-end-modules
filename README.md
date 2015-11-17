@@ -10,7 +10,7 @@ The sass source code lives in /src/styles and follows mostly standard [BEM namin
 * Landmark global elements have no class prefixes
 
 ### Sass Folder Structure ###
-#### Base styles: ####
+#### Base styles ####
 Files in `/base` serve as the style foundation. It includes reset styles, element styling, and includes custom fonts that your project might need.
 
 #### Helpers ####
@@ -68,3 +68,32 @@ In order to support legacy browsers that do not support media queries we have to
 ````
 
 Now legacy browsers will get desktop styles without needing a polyfill for media queries.
+
+## JavaScript Modules
+
+### Build System and Overview ###
+The JavaScript source that is included is bundled together using [webpack](https://webpack.github.io/) and commonJS module bundling syntax. A separate config file, (`webpack-config.js`), is included for configuring the webpack build and the script-loader plugin is used for globally loading scripts that might otherwise only be able to be included via a separate `<script>` tag, or for files that should be included globally like the `bind()` polyfill for legacy IE.
+
+### Base View and UiBuilder ###
+
+The `BaseView.js` file is the parent class that all sub-views in the `ui-components` directory should be extended from. Sub-views will have the following optional life-cycle methods.
+* **onCreateChildren():** is the method where instance variables are setup to cache jQuery selections.
+* **onSetupHandlers():** is the method that sets up other proxy methods from events (DOM or otherwise) to actual handler methods where the work is done.
+* **onRender():** is the method that would be used to render HTML to the DOM or make any necessary page adjustments the first time a view is initialized.
+* **onEnable():** is where events should be enabled or wired up (using jQuery's '.on()' method) to our cached selection instance variables (from `onCreateChildren`). There is also an `onDisable()` method that should be utilized to disable the events (using `.off()`).
+* **onWindowResize():** is a method that is triggered when the window is resized.
+* **onBreakpointChange():** is a method that is triggered when the user crosses the threshold into another media query breakpoint (as defined from `/src/data/sharedConfig.json`). The method gets passed an object as a parameter. The object contains the keys `'previousSize'` and `'currentSize'`.
+
+The `UiBuilder` controller is a factory/builder that instantiates component views for all jQuery elements passed into it.
+```
+uiBuilder.createComponents($('[data-ui-component]'));
+```
+It loops over all elements in the selection and instantiates a view based on the value of `'data-ui-component'`. Consider the following:
+```
+<a ... data-ui-component="SkipNav">...</a>
+```
+This will instantiate the sub-view `SkipNav`, passing in that DOM element as an argument.
+
+
+### Window Service ###
+The window service serves as a single point of reference to window information. Currently the window service publishes events to the sub/pub events utility (`/src/js/utils/events.js`) when the window is resized and when the current media query breakpoint changes. This allows for multiple sub-views to listen for the window to broadcast an event without having to setup up multiple DOM events.

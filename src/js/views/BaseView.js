@@ -80,7 +80,9 @@
     };
 
     BaseView.prototype.destroy = function() {
-
+        if (this.onDestroy) {
+            this.onDestroy();
+        }
     };
 
     module.exports = BaseView;
