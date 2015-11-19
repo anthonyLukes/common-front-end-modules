@@ -14,7 +14,7 @@ The sass source code lives in /src/styles and follows mostly standard [BEM namin
 Files in `/base` serve as the style foundation. It includes reset styles, element styling, and includes custom fonts that your project might need.
 
 #### Helpers ####
-Files in `/helpers` are Sass helpers that other modules and classes use. Anything in this folder is not intended to be output directly - i.e. should be referenced from another file. Helpers can contain global mixins, functions, and variables as well as mixins for vendor prefixes.  
+Files in `/helpers` are Sass helpers that other modules and classes use. Anything in this folder is not intended to be output directly - i.e. should be referenced from another file. Helpers can contain global mixins, functions, and variables as well as mixins for vendor prefixes.
 
 #### Landmarks ####
 File in `/landmarks` are styles for global elements that appear on every page - header, footer, main navigation, etc.
@@ -34,7 +34,7 @@ The common Sass modules are implemented in a mobile-first approach that is depen
 * Shared configuration for responsive breakpoints
 * Breakpoint mixin for min-width media queries
 
-#### Share configuration ####
+#### Shared configuration ####
 The gulp build includes a method (`distributeConfig`) that pulls configuration data from `/src/data/sharedConfig.json` and distributes it to `/src/styles/helpers/_shareConfig.scss` so that breakpoint sizes are available for Sass to use. If these sizes need to be updated, they need to be updated from `/src/data/sharedConfig.json` because that file generates and overrides the other.
 
 A helper variable exists for the medium and large breakpoints (`$SCREEN_MED` & `$SCREEN_LARGE`). These sizes can be used in the `bpmin` (or `bpmax`) mixin described below.
