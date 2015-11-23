@@ -152,13 +152,12 @@ gulp.task('tryConnect', function () {
 
 gulp.task('watch', ['setWatchToTrue', 'build', 'tryConnect'], function() {
   // setup up watches
-  gulp.watch(CONFIG.SASS.INPUT, ['sass','tryKss']);
-  gulp.watch(CONFIG.SASS.KSS_OVERVIEW, ['tryKss']);
+  gulp.watch(CONFIG.SASS.INPUT, ['sass']);
   gulp.watch(CONFIG.JS.INPUT_GLOB, ['webpack']);
   gulp.watch(CONFIG.HTML.INPUT_ALL, ['templates']);
   gulp.watch(CONFIG.DATA.INPUT, ['templates']);
   gulp.watch(CONFIG.MEDIA.INPUT, ['copyMedia']);
-  gulp.watch(CONFIG.SHARED_CONFIG.INPUT, ['distributeConfig', 'sass', 'tryKss', 'webpack', 'templates']);
+  gulp.watch(CONFIG.SHARED_CONFIG.INPUT, ['distributeConfig', 'sass', 'webpack', 'templates']);
 });
 
 gulp.task('build', ['tryJsHint', 'distributeConfig', 'sass', 'webpack', 'templates', 'copyMedia', 'tryConnect'], function() {

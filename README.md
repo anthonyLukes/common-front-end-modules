@@ -96,4 +96,4 @@ This will instantiate the sub-view `SkipNav`, passing in that DOM element as an 
 
 
 ### Window Service ###
-The window service serves as a single point of reference to window information. Currently the window service publishes events to the sub/pub events utility (`/src/js/utils/events.js`) when the window is resized and when the current media query breakpoint changes. This allows for multiple sub-views to listen for the window to broadcast an event without having to setup up multiple DOM events.
+The window service serves as a single point of reference to window information. Currently the window service publishes events to the sub/pub events utility (`/src/js/utils/events.js`) when the window is resized and when the current media query breakpoint changes. This allows for multiple sub-views to listen for the window to broadcast an event without having to setup multiple DOM events.
