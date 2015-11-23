@@ -80,6 +80,7 @@ $o-blocks_TRUE_WIDTH: get-true-width($o-blocks_MARGIN);
 
 .o-blocks > * {
     display: inline-block;
+    vertical-align: top;
     font-size: $BASE_FONT_SIZE;
     margin-left: percentage(1 - $o-blocks_TRUE_WIDTH);
     width: get-column-width(1, $o-blocks_MARGIN); // initially set to 100% width by default
